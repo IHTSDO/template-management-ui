@@ -1,0 +1,7 @@
+<nav id="sidebar" class="footer-margin">
+    <h3 class="p-3 mb-0">Templates</h3>
+    <input type="search" class="searchbar py-2 px-3" [(ngModel)]="textFilter" placeholder="Search for Templates...">
+    <div *ngFor="let template of templates | alphabetical | alphabeticalSemanticTag | textFilter:textFilter" class="category py-2 px-3"
+         (click)="activeTemplate = template"
+         [class.active]="activeTemplate === template">{{template.name}}</div>
+</nav>
