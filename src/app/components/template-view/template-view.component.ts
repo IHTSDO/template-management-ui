@@ -80,6 +80,14 @@ export class TemplateViewComponent implements OnInit {
         }
     }
 
+    readableCaseSignificance(caseSignificance): string {
+        switch (caseSignificance) {
+            case 'CASE_INSENSITIVE': return 'Entire Term Case Insensitive';
+            case 'CASE_SENSITIVE': return 'Entire Term Case Sensitive';
+            case 'INITIAL_CHARACTER_CASE_INSENSITIVE': return 'Only Initial Character Case Insensitive';
+        }
+    }
+
     acceptabilityMap(acceptabilityMap): string[] {
         const newMap = [];
 
@@ -124,6 +132,18 @@ export class TemplateViewComponent implements OnInit {
             case 'PREFERRED': return 'P';
             case 'ACCEPTABLE': return 'A';
             case 'NOT_ACCEPTABLE': return 'N';
+        }
+    }
+
+    readableAcceptabilityMap(acceptabilityMap): string {
+        for (const key in acceptabilityMap) {
+            if (acceptabilityMap.hasOwnProperty(key)) {
+                switch (acceptabilityMap[key]) {
+                    case 'PREFERRED': return 'Preferred';
+                    case 'ACCEPTABLE': return 'Acceptable';
+                    case 'NOT_ACCEPTABLE': return 'Not Acceptable';
+                }
+            }
         }
     }
 }
