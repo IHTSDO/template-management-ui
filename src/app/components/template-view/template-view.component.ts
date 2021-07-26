@@ -146,4 +146,30 @@ export class TemplateViewComponent implements OnInit {
             }
         }
     }
+
+    addHighlight(slotName) {
+        if (slotName) {
+            Array.from(document.getElementsByClassName('slot')).forEach(slot => {
+                if (slotName === slot.innerHTML.replace('[[', '').replace(']]', '')) {
+                    slot.classList.add('text-fruit-salad');
+                }
+            });
+        }
+    }
+
+    removeHighlight(slotName) {
+        if (slotName) {
+            Array.from(document.getElementsByClassName('slot')).forEach(slot => {
+                if (slotName === slot.innerHTML.replace('[[', '').replace(']]', '')) {
+                    slot.classList.remove('text-fruit-salad');
+                }
+            });
+        }
+    }
+
+    constructTemplate(term): string {
+        const open = '<span class="slot">[[';
+        const close = ']]</span>';
+        return term.replaceAll('[[', open).replaceAll(']]', close);
+    }
 }

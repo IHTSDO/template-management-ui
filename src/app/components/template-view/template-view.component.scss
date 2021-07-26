@@ -20,7 +20,7 @@ div#template-view {
             }
         }
 
-        input.form-control {
+        div.form-control, input.form-control {
             font-size: 1.6rem;
 
             &.type {
