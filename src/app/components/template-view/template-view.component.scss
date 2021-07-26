@@ -1,0 +1,43 @@
+@import '~src/variables.scss';
+
+div#template-view {
+    margin-left: 48rem;
+
+    div.template-expressions {
+        background-color: darken($white, 5%);
+
+        span {
+            &.w-8r {
+                width: 8rem;
+            }
+
+            &.w-20r {
+                width: 20rem;
+            }
+
+            &.attribute {
+                background-color: lighten($candlelight, 30%);
+            }
+        }
+
+        input.form-control {
+            font-size: 1.6rem;
+
+            &.type {
+                background-color: lighten($anakiwa, 5%);
+            }
+
+            &.target {
+                background-color: lighten($wisteria, 35%);
+            }
+
+            &.template {
+                background-color: lighten($anakiwa, 5%);
+            }
+        }
+
+        span.input-group-text {
+            font-size: 1.2rem;
+        }
+    }
+}

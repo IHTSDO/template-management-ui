@@ -1,0 +1,28 @@
+<div id="template-view" class="p-5" *ngIf="activeTemplate">
+    <h2 class="mb-3">{{activeTemplate.name}}</h2>
+    <div class="template-expressions rounded-lg p-3 border mb-3">
+        <div *ngFor="let template of activeTemplate.conceptOutline.descriptions" class="input-group p-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text w-8r text-center">{{template.type}}</span>
+            </div>
+            <input class="form-control template" [value]="template.initialTerm" [disabled]="true">
+            <div class="input-group-append">
+                <span class="input-group-text">{{caseSignificance(template.caseSignificance)}}</span>
+            </div>
+            <div *ngFor="let map of acceptabilityMap(template.acceptabilityMap)" class="input-group-append">
+                <span class="input-group-text">{{map}}</span>
+            </div>
+        </div>
+    </div>
+    <ng-container *ngIf="relationshipTypes">
+        <div *ngFor="let axiom of activeTemplate.conceptOutline.classAxioms" class="template-expressions rounded-lg p-3 border mb-3">
+            <div *ngFor="let relationship of axiom.relationships" class="input-group p-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text w-20r text-center attribute">{{matchRelationshipType(relationship.type.conceptId)}}</span>
+                </div>
+                <input *ngIf="relationship.target" class="form-control target" [value]="matchRelationshipTarget(relationship.target.conceptId)" [disabled]="true">
+                <input *ngIf="!relationship.target" class="form-control type" [disabled]="true">
+            </div>
+        </div>
+    </ng-container>
+</div>

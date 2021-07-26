@@ -41,8 +41,8 @@ export class TerminologyServerService {
             }));
     }
 
-    getConcept(id): Observable<object> {
-        return this.http.get<object>(this.authoringService.uiConfiguration.endpoints.terminologyServerEndpoint + this.branchPath
-            + '/concepts/' + id);
+    getConcepts(concepts): Observable<object> {
+        return this.http.post(this.authoringService.uiConfiguration.endpoints.terminologyServerEndpoint + this.branchPath
+            + '/concepts/search/', { conceptIds: concepts});
     }
 }

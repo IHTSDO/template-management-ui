@@ -16,11 +16,16 @@ export class LeftSidebarComponent implements OnInit {
     activeTemplateSubscription: Subscription;
 
     constructor(private templateService: TemplateService) {
-        this.templatesSubscription = this.templateService.getTemplates().subscribe( data => {this.templates = data; console.log('data: ', data);});
+        this.templatesSubscription = this.templateService.getTemplates().subscribe( data => this.templates = data);
         this.activeTemplateSubscription = this.templateService.getActiveTemplate().subscribe( data => this.activeTemplate = data);
     }
 
     ngOnInit() {
 
+    }
+
+    selectTemplate(template) {
+        console.log('activeTemplate:', template);
+        this.templateService.setActiveTemplate(template);
     }
 }

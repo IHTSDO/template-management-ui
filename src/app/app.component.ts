@@ -58,6 +58,7 @@ export class AppComponent implements OnInit {
 
     projectSetup() {
         this.templateService.httpTemplates().subscribe(data => {
+            // console.log('data: ', data);
             this.templateService.setTemplates(data);
         });
     }

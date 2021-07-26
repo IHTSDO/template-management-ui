@@ -26,6 +26,7 @@ import {TemplateService} from './services/template/template.service';
 import {AlphabeticalPipe} from './pipes/alphabetical/alphabetical.pipe';
 import { TextFilterPipe } from './pipes/text-filter/text-filter.pipe';
 import {AlphabeticalSemanticTagPipe} from './pipes/alphabetical-semantic-tag/alphabetical-semantic-tag.pipe';
+import { TemplateViewComponent } from './components/template-view/template-view.component';
 
 // SERVICE IMPORTS
 
@@ -38,7 +39,8 @@ import {AlphabeticalSemanticTagPipe} from './pipes/alphabetical-semantic-tag/alp
         LeftSidebarComponent,
         AlphabeticalPipe,
         TextFilterPipe,
-        AlphabeticalSemanticTagPipe
+        AlphabeticalSemanticTagPipe,
+        TemplateViewComponent
     ],
     imports: [
         BrowserModule,
