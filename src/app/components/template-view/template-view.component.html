@@ -1,8 +1,8 @@
 <div id="template-view" class="p-5" *ngIf="activeTemplate">
     <h2 class="mb-3">{{activeTemplate.name}}</h2>
 <!--    <div [contentEditable]="true">The quick <span class="text-fruit-salad">brown</span> fox jumps over the <span class="text-mandy">lazy</span> dog</div>-->
-    <div class="template-expressions rounded-lg p-3 border mb-3">
-        <div *ngFor="let template of activeTemplate.conceptOutline.descriptions" class="input-group p-3">
+    <div class="template-expressions rounded-lg border mb-5">
+        <div *ngFor="let template of activeTemplate.conceptOutline.descriptions" class="input-group p-4">
             <div class="input-group-prepend">
                 <span class="input-group-text w-8r text-center">{{template.type}}</span>
             </div>
@@ -17,14 +17,22 @@
         </div>
     </div>
     <ng-container *ngIf="relationshipTypes">
-        <div *ngFor="let axiom of activeTemplate.conceptOutline.classAxioms" class="template-expressions rounded-lg p-3 border mb-3">
-            <div *ngFor="let relationship of axiom.relationships" class="input-group p-3" (mouseenter)="addHighlight(relationship.targetSlot?.slotName)" (mouseleave)="removeHighlight(relationship.targetSlot?.slotName)">
-                <div class="input-group-prepend">
-                    <span class="input-group-text w-20r text-center attribute">{{matchRelationshipType(relationship.type.conceptId)}}</span>
+        <div *ngFor="let axiom of activeTemplate.conceptOutline.classAxioms" class="template-expressions rounded-lg border mb-5">
+            <h2 class="p-3 mb-0">Slots</h2>
+            <ng-container *ngFor="let relationship of axiom.relationships; let i = index">
+                <hr *ngIf="(axiom.relationships[i - 1]?.groupId !== relationship.groupId)" class="w-100 my-0"/>
+                <div class="input-group p-3" [class.darker]="groupCheck(relationship.groupId)" (mouseenter)="addHighlight(relationship.targetSlot?.slotName)" (mouseleave)="removeHighlight(relationship.targetSlot?.slotName)"
+                     [class.pt-4b]="(axiom.relationships[i - 1]?.groupId !== relationship.groupId)" [class.pb-4b]="(axiom.relationships[i + 1]?.groupId !== relationship.groupId)">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text w-20r text-center attribute">{{matchRelationshipType(relationship.type.conceptId)}}</span>
+                    </div>
+                    <input *ngIf="relationship.target" class="form-control target" [value]="matchRelationshipTarget(relationship.target.conceptId)" [disabled]="true">
+                    <input *ngIf="!relationship.target" class="form-control type" [value]="relationship.targetSlot.allowableRangeECL" [disabled]="true">
+                    <div *ngIf="!cardinalityCheck(relationship.cardinalityMin)" class="input-group-append">
+                        <span class="input-group-text">OPTIONAL</span>
+                    </div>
                 </div>
-                <input *ngIf="relationship.target" class="form-control target" [value]="matchRelationshipTarget(relationship.target.conceptId)" [disabled]="true">
-                <input *ngIf="!relationship.target" class="form-control type" [value]="relationship.targetSlot.allowableRangeECL" [disabled]="true">
-            </div>
+            </ng-container>
         </div>
     </ng-container>
 </div>

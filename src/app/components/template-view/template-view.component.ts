@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {TemplateService} from '../../services/template/template.service';
 import {TerminologyServerService} from '../../services/terminologyServer/terminology-server.service';
+import {parse} from 'jasmine-spec-reporter/built/configuration-parser';
 
 @Component({
     selector: 'app-template-view',
@@ -74,9 +75,9 @@ export class TemplateViewComponent implements OnInit {
 
     caseSignificance(caseSignificance): string {
         switch (caseSignificance) {
-            case 'CASE_INSENSITIVE': return 'ab';
-            case 'CASE_SENSITIVE': return 'AB';
-            case 'INITIAL_CHARACTER_CASE_INSENSITIVE': return 'Ab';
+            case 'CASE_INSENSITIVE': return 'ci';
+            case 'CASE_SENSITIVE': return 'CS';
+            case 'INITIAL_CHARACTER_CASE_INSENSITIVE': return 'cI';
         }
     }
 
@@ -150,9 +151,12 @@ export class TemplateViewComponent implements OnInit {
     addHighlight(slotName) {
         if (slotName) {
             Array.from(document.getElementsByClassName('slot')).forEach(slot => {
-                if (slotName === slot.innerHTML.replace('[[', '').replace(']]', '')) {
-                    slot.classList.add('text-fruit-salad');
-                }
+                this.activeTemplate.lexicalTemplates.forEach(lexical => {
+                    if ((slotName === lexical.takeFSNFromSlot) &&
+                        (slot.innerHTML.replace('[[', '[').replace(']]', ']') === lexical.displayName)) {
+                        slot.classList.add('text-mandy');
+                    }
+                });
             });
         }
     }
@@ -160,9 +164,12 @@ export class TemplateViewComponent implements OnInit {
     removeHighlight(slotName) {
         if (slotName) {
             Array.from(document.getElementsByClassName('slot')).forEach(slot => {
-                if (slotName === slot.innerHTML.replace('[[', '').replace(']]', '')) {
-                    slot.classList.remove('text-fruit-salad');
-                }
+                this.activeTemplate.lexicalTemplates.forEach(lexical => {
+                    if ((slotName === lexical.takeFSNFromSlot) &&
+                        (slot.innerHTML.replace('[[', '[').replace(']]', ']') === lexical.displayName)) {
+                        slot.classList.remove('text-mandy');
+                    }
+                });
             });
         }
     }
@@ -171,5 +178,13 @@ export class TemplateViewComponent implements OnInit {
         const open = '<span class="slot">[[';
         const close = ']]</span>';
         return term.replaceAll('[[', open).replaceAll(']]', close);
+    }
+
+    groupCheck(number): boolean {
+        return number % 2 === 0;
+    }
+
+    cardinalityCheck(number): number {
+        return parseInt(number, 2);
     }
 }
