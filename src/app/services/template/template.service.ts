@@ -32,6 +32,6 @@ export class TemplateService {
     }
 
     httpTemplates() {
-        return this.http.get('template-service/templates');
+        return this.http.get('/template-service/templates');
     }
 }
