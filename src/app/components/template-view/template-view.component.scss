@@ -4,8 +4,24 @@ $template-yellow: rgb(255,255,219);
 $template-blue: rgb(183,219,255);
 $template-purple: rgb(219,219,255);
 
-div#template-view {
+div.template-view {
     margin-left: 48rem;
+
+    h2 {
+        span.definitionStatus {
+            display: inline-block;
+            height: 2.5rem;
+            width: 2.5rem;
+            padding-top: 2px;
+            color: $white;
+        }
+
+        &.no-template {
+            font-weight: 300;
+            color: $grey;
+        }
+    }
+
 
     div.template-expressions {
         background-color: darken($white, 5%);
@@ -46,7 +62,9 @@ div#template-view {
 
         div.form-control, input.form-control {
             font-size: 1.6rem;
-            height: 34px;
+            min-height: 34px;
+            line-height: 27px;
+            height: unset;
 
             &.type {
                 background-color: $template-blue;
@@ -58,6 +76,10 @@ div#template-view {
 
             &.template {
                 background-color: $template-blue;
+            }
+
+            &.relationship {
+                font-size: 1.2rem;
             }
         }
 

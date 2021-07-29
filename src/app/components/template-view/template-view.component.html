@@ -1,6 +1,12 @@
-<div id="template-view" class="p-5" *ngIf="activeTemplate">
-    <h2 class="mb-3">{{activeTemplate.name}}</h2>
-<!--    <div [contentEditable]="true">The quick <span class="text-fruit-salad">brown</span> fox jumps over the <span class="text-mandy">lazy</span> dog</div>-->
+<div class="template-view p-5" *ngIf="activeTemplate else noTemplate">
+    <h2 class="mb-3">{{activeTemplate.name}}
+        <span *ngIf="definitionStatusCheck(activeTemplate.conceptOutline.definitionStatus)"
+              matTooltip="Fully Defined"
+              class="rounded-circle bg-sea-buckthorn definitionStatus text-center">&#8801;</span>
+        <span *ngIf="!definitionStatusCheck(activeTemplate.conceptOutline.definitionStatus)"
+              matTooltip="Primitive"
+              class="rounded-circle bg-sea-buckthorn definitionStatus text-center">&nbsp;</span>
+    </h2>
     <div class="template-expressions rounded-lg border mb-5">
         <div *ngFor="let template of activeTemplate.conceptOutline.descriptions" class="input-group p-4">
             <div class="input-group-prepend">
@@ -23,11 +29,12 @@
                 <hr *ngIf="(axiom.relationships[i - 1]?.groupId !== relationship.groupId)" class="w-100 my-0"/>
                 <div class="input-group p-3" [class.darker]="groupCheck(relationship.groupId)" (mouseenter)="addHighlight(relationship.targetSlot?.slotName)" (mouseleave)="removeHighlight(relationship.targetSlot?.slotName)"
                      [class.pt-4b]="(axiom.relationships[i - 1]?.groupId !== relationship.groupId)" [class.pb-4b]="(axiom.relationships[i + 1]?.groupId !== relationship.groupId)">
+                    <div class="input-group-prepend"><span [className]="colors[i]"></span></div>
                     <div class="input-group-prepend">
                         <span class="input-group-text w-20r text-center attribute">{{matchRelationshipType(relationship.type.conceptId)}}</span>
                     </div>
-                    <input *ngIf="relationship.target" class="form-control target" [value]="matchRelationshipTarget(relationship.target.conceptId)" [disabled]="true">
-                    <input *ngIf="!relationship.target" class="form-control type" [value]="relationship.targetSlot.allowableRangeECL" [disabled]="true">
+                    <div *ngIf="relationship.target" class="form-control relationship target" [contentEditable]="false">{{matchRelationshipTarget(relationship.target.conceptId)}}</div>
+                    <div *ngIf="!relationship.target" class="form-control relationship type" [contentEditable]="false">{{relationship.targetSlot.allowableRangeECL}}</div>
                     <div *ngIf="!cardinalityCheck(relationship.cardinalityMin)" class="input-group-append">
                         <span class="input-group-text">OPTIONAL</span>
                     </div>
@@ -36,3 +43,8 @@
         </div>
     </ng-container>
 </div>
+<ng-template #noTemplate>
+    <div class="template-view p-5">
+        <h2 class="no-template text-center p-5">- Please select a template from the list on the left -</h2>
+    </div>
+</ng-template>

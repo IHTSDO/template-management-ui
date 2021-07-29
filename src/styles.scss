@@ -137,3 +137,76 @@ ngb-typeahead-window.dropdown-menu button {
     color: $white !important;
     max-width: 30rem !important;
 }
+
+$spring-rain: #A6D0A6;
+$jungle-mist: #A6D0CF;
+$rock-blue: #A6B7D0;
+$logan: #AFA6D0;
+$london-hue: #CBA6D0;
+$careys-pink: #D0A6BD;
+$clam-shell: #D0ABA6;
+$vanilla: #D0C2A6;
+$green-mist: #CAD0A6;
+$sprout: #B0D0A6;
+
+
+span.slot {
+    border-radius: 5px;
+    padding: 2px;
+}
+
+span.spring-rain {
+    background-color: lighten($spring-rain, 10%);
+
+    &.highlight {
+        background-color: $spring-rain;
+    }
+}
+
+span.london-hue {
+    background-color: lighten($london-hue, 10%);
+
+    &.highlight {
+        background-color: $london-hue;
+    }
+}
+
+span.careys-pink {
+    background-color: lighten($careys-pink, 10%);
+
+    &.highlight {
+        background-color: $careys-pink;
+    }
+}
+
+span.clam-shell {
+    background-color: lighten($clam-shell, 10%);
+
+    &.highlight {
+        background-color: $clam-shell;
+    }
+}
+
+span.vanilla {
+    background-color: lighten($vanilla, 10%);
+
+    &.highlight {
+        background-color: $vanilla;
+    }
+}
+
+span.green-mist {
+    background-color: lighten($green-mist, 10%);
+
+    &.highlight {
+        background-color: $green-mist;
+    }
+}
+
+span.sprout {
+    background-color: lighten($sprout, 10%);
+
+    &.highlight {
+        background-color: $sprout;
+    }
+}
