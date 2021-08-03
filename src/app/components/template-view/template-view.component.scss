@@ -16,6 +16,11 @@ div.template-view {
             color: $white;
         }
 
+        span.template-syntax-icon {
+            cursor: pointer;
+            color: $river-bed;
+        }
+
         &.no-template {
             font-weight: 300;
             color: $grey;
@@ -85,6 +90,25 @@ div.template-view {
 
         span.input-group-text {
             font-size: 1.2rem;
+        }
+    }
+}
+
+app-modal.template-syntax-modal {
+    div.template-syntax {
+        font-family: "Courier New", serif;
+        letter-spacing: 0;
+
+        div.template-syntax-container {
+            border: 1px solid $ghost-grey;
+            border-radius: 1rem;
+            background-color: darken($white, 5%);
+            overflow: scroll;
+
+            p {
+                white-space: pre;
+                font-size: 1.4rem;
+            }
         }
     }
 }

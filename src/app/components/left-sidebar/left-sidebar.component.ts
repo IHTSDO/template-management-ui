@@ -26,6 +26,10 @@ export class LeftSidebarComponent implements OnInit {
 
     selectTemplate(template) {
         console.log('activeTemplate:', template);
-        this.templateService.setActiveTemplate(template);
+        if (this.activeTemplate === template) {
+            this.templateService.setActiveTemplate(null);
+        } else {
+            this.templateService.setActiveTemplate(template);
+        }
     }
 }

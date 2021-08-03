@@ -28,6 +28,8 @@ import {TextFilterPipe} from './pipes/text-filter/text-filter.pipe';
 import {AlphabeticalSemanticTagPipe} from './pipes/alphabetical-semantic-tag/alphabetical-semantic-tag.pipe';
 import {TemplateViewComponent} from './components/template-view/template-view.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {ModalComponent} from './components/modal/modal.component';
+import {ModalService} from './services/modal/modal.service';
 
 // SERVICE IMPORTS
 
@@ -41,7 +43,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
         AlphabeticalPipe,
         TextFilterPipe,
         AlphabeticalSemanticTagPipe,
-        TemplateViewComponent
+        TemplateViewComponent,
+        ModalComponent
     ],
     imports: [
         BrowserModule,
@@ -57,6 +60,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
         AuthoringService,
         StatusPageService,
         TemplateService,
+        ModalService,
         EnvServiceProvider,
         {
             provide: HTTP_INTERCEPTORS,

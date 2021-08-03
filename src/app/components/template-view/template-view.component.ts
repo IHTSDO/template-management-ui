@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {TemplateService} from '../../services/template/template.service';
 import {TerminologyServerService} from '../../services/terminologyServer/terminology-server.service';
-import {parse} from 'jasmine-spec-reporter/built/configuration-parser';
+import {ModalService} from '../../services/modal/modal.service';
 
 @Component({
     selector: 'app-template-view',
@@ -25,13 +25,17 @@ export class TemplateViewComponent implements OnInit {
         'sprout'
     ];
 
-    constructor(private templateService: TemplateService, private terminologyService: TerminologyServerService) {
+    constructor(private templateService: TemplateService,
+                private terminologyService: TerminologyServerService,
+                public modalService: ModalService) {
         this.activeTemplateSubscription = this.templateService.getActiveTemplate().subscribe(data => {
             this.activeTemplate = data;
             this.relationshipTypes = null;
             this.relationshipTargets = null;
-            this.collectRelationshipTypeIds();
-            this.collectRelationshipTargetIds();
+            if (data) {
+                this.collectRelationshipTypeIds();
+                this.collectRelationshipTargetIds();
+            }
         });
     }
 
@@ -251,6 +255,22 @@ export class TemplateViewComponent implements OnInit {
             completeTerm = completeTerm.replace('<span class="slot">', '<span class="slot ' + color + '">');
         });
         return completeTerm;
+    }
+
+    matchColours(slotName) {
+        let colorIndex = 0;
+
+        if (slotName) {
+            Array.from(document.getElementsByClassName('slot')).forEach(slot => {
+                this.activeTemplate.lexicalTemplates.forEach((lexical, index) => {
+                    if ((slotName === lexical.takeFSNFromSlot) &&
+                        (slot.innerHTML.replace('[[', '[').replace(']]', ']') === lexical.displayName)) {
+                        // document.getElementsByClassName('color-bar')
+                        return this.colors[index];
+                    }
+                });
+            });
+        }
     }
 
     groupCheck(number): boolean {

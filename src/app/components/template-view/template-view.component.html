@@ -6,6 +6,7 @@
         <span *ngIf="!definitionStatusCheck(activeTemplate.conceptOutline.definitionStatus)"
               matTooltip="Primitive"
               class="rounded-circle bg-sea-buckthorn definitionStatus text-center">&nbsp;</span>
+        <span class="p-3 template-syntax-icon"><i class="fas fa-external-link-alt" (click)="modalService.open('template-syntax-modal')"></i></span>
     </h2>
     <div class="template-expressions rounded-lg border mb-5">
         <div *ngFor="let template of activeTemplate.conceptOutline.descriptions" class="input-group p-4">
@@ -29,7 +30,7 @@
                 <hr *ngIf="(axiom.relationships[i - 1]?.groupId !== relationship.groupId)" class="w-100 my-0"/>
                 <div class="input-group p-3" [class.darker]="groupCheck(relationship.groupId)" (mouseenter)="addHighlight(relationship.targetSlot?.slotName)" (mouseleave)="removeHighlight(relationship.targetSlot?.slotName)"
                      [class.pt-4b]="(axiom.relationships[i - 1]?.groupId !== relationship.groupId)" [class.pb-4b]="(axiom.relationships[i + 1]?.groupId !== relationship.groupId)">
-                    <div class="input-group-prepend"><span [className]="colors[i]"></span></div>
+                    <div class="input-group-prepend"><span class="color-bar" [className]="matchColours(relationship.targetSlot?.slotName)">&nbsp;&nbsp;&nbsp;</span></div>
                     <div class="input-group-prepend">
                         <span class="input-group-text w-20r text-center attribute">{{matchRelationshipType(relationship.type.conceptId)}}</span>
                     </div>
@@ -48,3 +49,17 @@
         <h2 class="no-template text-center p-5">- Please select a template from the list on the left -</h2>
     </div>
 </ng-template>
+
+<app-modal id="template-syntax-modal" class="modal template-syntax-modal" [size]="'xl'">
+    <h3 header class="mb-0">Template Syntax</h3>
+    <ng-container body>
+        <div class="tab-pane fade template-syntax p-5 show active">
+            <div class="template-syntax-container p-5">
+                <p class="mb-0">{{activeTemplate?.logicalTemplate}}</p>
+            </div>
+        </div>
+    </ng-container>
+    <div footer>
+        <button type="button" class="btn btn" (click)="modalService.close('template-syntax-modal')">CLOSE</button>
+    </div>
+</app-modal>
