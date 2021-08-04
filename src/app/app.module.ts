@@ -30,6 +30,7 @@ import {TemplateViewComponent} from './components/template-view/template-view.co
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {ModalComponent} from './components/modal/modal.component';
 import {ModalService} from './services/modal/modal.service';
+import { AcceptabilityMapPipe } from './pipes/acceptability-map/acceptability-map.pipe';
 
 // SERVICE IMPORTS
 
@@ -44,7 +45,8 @@ import {ModalService} from './services/modal/modal.service';
         TextFilterPipe,
         AlphabeticalSemanticTagPipe,
         TemplateViewComponent,
-        ModalComponent
+        ModalComponent,
+        AcceptabilityMapPipe
     ],
     imports: [
         BrowserModule,

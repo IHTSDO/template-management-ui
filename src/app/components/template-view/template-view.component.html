@@ -18,7 +18,7 @@
             <div class="input-group-append" matTooltip="{{readableCaseSignificance(template.caseSignificance)}}">
                 <span class="input-group-text">{{caseSignificance(template.caseSignificance)}}</span>
             </div>
-            <div *ngFor="let map of acceptabilityMap(template.acceptabilityMap)" class="input-group-append" matTooltip="{{readableAcceptabilityMap(template.acceptabilityMap)}}">
+            <div *ngFor="let map of acceptabilityMap(template.acceptabilityMap) | acceptabilityMap" class="input-group-append" matTooltip="{{readableAcceptabilityMap(template.acceptabilityMap)}}">
                 <span class="input-group-text">{{map}}</span>
             </div>
         </div>
