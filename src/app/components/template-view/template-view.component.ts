@@ -18,9 +18,9 @@ export class TemplateViewComponent implements OnInit {
     colors = [
         'spring-rain',
         'london-hue',
+        'vanilla',
         'careys-pink',
         'clam-shell',
-        'vanilla',
         'green-mist',
         'sprout'
     ];
@@ -257,20 +257,19 @@ export class TemplateViewComponent implements OnInit {
         return completeTerm;
     }
 
-    matchColours(slotName) {
-        let colorIndex = 0;
+    matchColours(slotName): string {
+        let color = '';
 
-        if (slotName) {
+        const lexicalTemplate = this.activeTemplate.lexicalTemplates.find(lexical => slotName === lexical.takeFSNFromSlot);
+
+        if (lexicalTemplate && slotName) {
             Array.from(document.getElementsByClassName('slot')).forEach(slot => {
-                this.activeTemplate.lexicalTemplates.forEach((lexical, index) => {
-                    if ((slotName === lexical.takeFSNFromSlot) &&
-                        (slot.innerHTML.replace('[[', '[').replace(']]', ']') === lexical.displayName)) {
-                        // document.getElementsByClassName('color-bar')
-                        return this.colors[index];
-                    }
-                });
+                if (slot.innerHTML.includes(lexicalTemplate.displayName)) {
+                    color = slot.classList[1];
+                }
             });
         }
+        return color;
     }
 
     groupCheck(number): boolean {
