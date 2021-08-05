@@ -57,6 +57,16 @@ export class TemplateViewComponent implements OnInit {
         }
     }
 
+    getDefinitionStatus(id) {
+        let status = '';
+
+        if (this.relationshipTargets) {
+            status = this.relationshipTargets.find(item => item.conceptId === id).definitionStatus || '';
+        }
+
+        return status === 'PRIMITIVE' ? 'blue' : 'purple';
+    }
+
     collectRelationshipTypeIds() {
         const relationshipIds = [];
 
@@ -234,6 +244,15 @@ export class TemplateViewComponent implements OnInit {
                     }
                 });
             });
+
+            // Array.from(document.getElementsByClassName('color-bar')).forEach(bar => {
+            //     this.activeTemplate.lexicalTemplates.forEach(lexical => {
+            //         if (slotName === lexical.takeFSNFromSlot) {
+            //             // console.log('slotName: ' + slotName + ' --- lexical: ', lexical);
+            //             bar.classList.add('highlight');
+            //         }
+            //     });
+            // });
         }
     }
 
@@ -247,6 +266,14 @@ export class TemplateViewComponent implements OnInit {
                     }
                 });
             });
+
+            // Array.from(document.getElementsByClassName('color-bar')).forEach(bar => {
+            //     this.activeTemplate.lexicalTemplates.forEach(lexical => {
+            //         if (slotName === lexical.takeFSNFromSlot) {
+            //             bar.classList.remove('highlight');
+            //         }
+            //     });
+            // });
         }
     }
 

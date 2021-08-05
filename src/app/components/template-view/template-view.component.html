@@ -30,12 +30,12 @@
                 <hr *ngIf="(axiom.relationships[i - 1]?.groupId !== relationship.groupId)" class="w-100 my-0"/>
                 <div class="input-group p-3" [class.darker]="groupCheck(relationship.groupId)" (mouseenter)="addHighlight(relationship.targetSlot?.slotName)" (mouseleave)="removeHighlight(relationship.targetSlot?.slotName)"
                      [class.pt-4b]="(axiom.relationships[i - 1]?.groupId !== relationship.groupId)" [class.pb-4b]="(axiom.relationships[i + 1]?.groupId !== relationship.groupId)">
-                    <div class="input-group-prepend"><span class="color-bar" [className]="matchColours(relationship.targetSlot?.slotName)">&nbsp;&nbsp;&nbsp;</span></div>
+                    <div class="input-group-prepend"><span class="color-bar {{matchColours(relationship.targetSlot?.slotName)}}">&nbsp;&nbsp;&nbsp;</span></div>
                     <div class="input-group-prepend">
                         <span class="input-group-text w-20r text-center attribute">{{matchRelationshipType(relationship.type.conceptId)}}</span>
                     </div>
-                    <div *ngIf="relationship.target" class="form-control relationship target" [contentEditable]="false">{{matchRelationshipTarget(relationship.target.conceptId)}}</div>
-                    <div *ngIf="!relationship.target" class="form-control relationship type" [contentEditable]="false">{{relationship.targetSlot.allowableRangeECL}}</div>
+                    <div *ngIf="relationship.target" class="form-control relationship {{getDefinitionStatus(relationship.target.conceptId)}}" [contentEditable]="false">{{matchRelationshipTarget(relationship.target.conceptId)}}</div>
+                    <div *ngIf="!relationship.target" class="form-control relationship type {{matchColours(relationship.targetSlot?.slotName)}}" [contentEditable]="false">{{relationship.targetSlot.allowableRangeECL}}</div>
                     <div *ngIf="!cardinalityCheck(relationship.cardinalityMin)" class="input-group-append">
                         <span class="input-group-text">OPTIONAL</span>
                     </div>

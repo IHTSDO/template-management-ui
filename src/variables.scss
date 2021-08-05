@@ -28,6 +28,14 @@ $ghost-grey: #C8CFD6;
     background-color: $ghost-grey;
 }
 
+$bootstrap-grey : #E9ECEF;
+.text-bootstrap-grey {
+    color: $bootstrap-grey;
+}
+.bg-bootstrap-grey {
+    background-color: $bootstrap-grey;
+}
+
 $grey: #808080;
 .text-grey {
     color: $grey;

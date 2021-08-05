@@ -155,83 +155,83 @@ span.slot {
     padding: 2px;
 }
 
-span.spring-rain {
-    background-color: lighten($spring-rain, 10%);
+.spring-rain {
+    background-color: lighten($spring-rain, 10%) !important;
 
     &.highlight {
-        background-color: $spring-rain;
+        background-color: $spring-rain !important;
     }
 }
 
-span.london-hue {
-    background-color: lighten($london-hue, 10%);
+.london-hue {
+    background-color: lighten($london-hue, 10%) !important;
 
     &.highlight {
-        background-color: $london-hue;
+        background-color: $london-hue !important;
     }
 }
 
-span.careys-pink {
-    background-color: lighten($careys-pink, 10%);
+.careys-pink {
+    background-color: lighten($careys-pink, 10%) !important;
 
     &.highlight {
-        background-color: $careys-pink;
+        background-color: $careys-pink !important;
     }
 }
 
-span.clam-shell {
-    background-color: lighten($clam-shell, 10%);
+.clam-shell {
+    background-color: lighten($clam-shell, 10%) !important;
 
     &.highlight {
-        background-color: $clam-shell;
+        background-color: $clam-shell !important;
     }
 }
 
-span.vanilla {
-    background-color: lighten($vanilla, 10%);
+.vanilla {
+    background-color: lighten($vanilla, 10%) !important;
 
     &.highlight {
-        background-color: $vanilla;
+        background-color: $vanilla !important;
     }
 }
 
-span.green-mist {
-    background-color: lighten($green-mist, 10%);
+.green-mist {
+    background-color: lighten($green-mist, 10%) !important;
 
     &.highlight {
-        background-color: $green-mist;
+        background-color: $green-mist !important;
     }
 }
 
-span.perano {
-    background-color: lighten($perano, 10%);
+.perano {
+    background-color: lighten($perano, 10%) !important;
 
     &.highlight {
-        background-color: $perano;
+        background-color: $perano !important;
     }
 }
 
-span.mercury {
-    background-color: lighten($mercury, 10%);
+.mercury {
+    background-color: lighten($mercury, 10%) !important;
 
     &.highlight {
-        background-color: $mercury;
+        background-color: $mercury !important;
     }
 }
 
-span.morning-glory {
-    background-color: lighten($morning-glory, 10%);
+.morning-glory {
+    background-color: lighten($morning-glory, 10%) !important;
 
     &.highlight {
-        background-color: $morning-glory;
+        background-color: $morning-glory !important;
     }
 }
 
-span.dull-lavender {
-    background-color: lighten($dull-lavender, 10%);
+.dull-lavender {
+    background-color: lighten($dull-lavender, 10%) !important;
 
     &.highlight {
-        background-color: $dull-lavender;
+        background-color: $dull-lavender !important;
     }
 }
 

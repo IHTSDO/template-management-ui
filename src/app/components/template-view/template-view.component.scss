@@ -73,16 +73,16 @@ div.template-view {
             line-height: 34px;
             height: unset;
 
-            &.type {
+            &.type, &.template {
+                background-color: $bootstrap-grey;
+            }
+
+            &.blue {
                 background-color: $template-blue;
             }
 
-            &.target {
+            &.purple {
                 background-color: $template-purple;
-            }
-
-            &.template {
-                background-color: $template-blue;
             }
 
             &.relationship {
