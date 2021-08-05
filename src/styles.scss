@@ -139,15 +139,15 @@ ngb-typeahead-window.dropdown-menu button {
 }
 
 $spring-rain: #A6D0A6;
-$jungle-mist: #A6D0CF;
-$rock-blue: #A6B7D0;
-$logan: #AFA6D0;
 $london-hue: #CBA6D0;
 $careys-pink: #D0A6BD;
 $clam-shell: #D0ABA6;
 $vanilla: #D0C2A6;
 $green-mist: #CAD0A6;
-$sprout: #B0D0A6;
+$perano: #9DC7F0;
+$mercury: #D4D4D4;
+$morning-glory: #A0E3DF;
+$dull-lavender: #A0A5E3;
 
 
 span.slot {
@@ -203,10 +203,35 @@ span.green-mist {
     }
 }
 
-span.sprout {
-    background-color: lighten($sprout, 10%);
+span.perano {
+    background-color: lighten($perano, 10%);
 
     &.highlight {
-        background-color: $sprout;
+        background-color: $perano;
     }
 }
+
+span.mercury {
+    background-color: lighten($mercury, 10%);
+
+    &.highlight {
+        background-color: $mercury;
+    }
+}
+
+span.morning-glory {
+    background-color: lighten($morning-glory, 10%);
+
+    &.highlight {
+        background-color: $morning-glory;
+    }
+}
+
+span.dull-lavender {
+    background-color: lighten($dull-lavender, 10%);
+
+    &.highlight {
+        background-color: $dull-lavender;
+    }
+}
+

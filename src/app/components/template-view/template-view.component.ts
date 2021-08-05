@@ -22,7 +22,10 @@ export class TemplateViewComponent implements OnInit {
         'careys-pink',
         'clam-shell',
         'green-mist',
-        'sprout'
+        'perano',
+        'mercury',
+        'morning-glory',
+        'dull-lavender'
     ];
 
     constructor(private templateService: TemplateService,
