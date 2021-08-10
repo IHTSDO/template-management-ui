@@ -34,8 +34,8 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text w-20r text-center attribute">{{matchRelationshipType(relationship.type.conceptId)}}</span>
                     </div>
-                    <div *ngIf="relationship.target" class="form-control relationship {{getDefinitionStatus(relationship.target.conceptId)}}" [contentEditable]="false">{{matchRelationshipTarget(relationship.target.conceptId)}}</div>
-                    <div *ngIf="!relationship.target" class="form-control relationship type {{matchColours(relationship.targetSlot?.slotName)}}" [contentEditable]="false">{{relationship.targetSlot.allowableRangeECL}}</div>
+                    <div *ngIf="relationship.target" class="form-control {{getDefinitionStatus(relationship.target.conceptId)}}" [contentEditable]="false">{{matchRelationshipTarget(relationship.target.conceptId)}}</div>
+                    <div *ngIf="!relationship.target" class="form-control type {{matchColours(relationship.targetSlot?.slotName)}}" [contentEditable]="false">{{relationship.targetSlot.allowableRangeECL}}</div>
                     <div *ngIf="!cardinalityCheck(relationship.cardinalityMin)" class="input-group-append">
                         <span class="input-group-text">OPTIONAL</span>
                     </div>

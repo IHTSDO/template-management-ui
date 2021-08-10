@@ -103,7 +103,7 @@ export class TemplateViewComponent implements OnInit {
         switch (caseSignificance) {
             case 'CASE_INSENSITIVE':
                 return 'ci';
-            case 'CASE_SENSITIVE':
+            case 'ENTIRE_TERM_CASE_SENSITIVE':
                 return 'CS';
             case 'INITIAL_CHARACTER_CASE_INSENSITIVE':
                 return 'cI';
@@ -114,7 +114,7 @@ export class TemplateViewComponent implements OnInit {
         switch (caseSignificance) {
             case 'CASE_INSENSITIVE':
                 return 'Entire Term Case Insensitive';
-            case 'CASE_SENSITIVE':
+            case 'ENTIRE_TERM_CASE_SENSITIVE':
                 return 'Entire Term Case Sensitive';
             case 'INITIAL_CHARACTER_CASE_INSENSITIVE':
                 return 'Only Initial Character Case Insensitive';
