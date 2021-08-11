@@ -80,6 +80,7 @@ export class TemplateViewComponent implements OnInit {
 
         this.terminologyService.getConcepts(relationshipIds).subscribe(data => {
             this.relationshipTypes = data['items'];
+            this.addEventListeners();
         });
     }
 
@@ -96,6 +97,7 @@ export class TemplateViewComponent implements OnInit {
 
         this.terminologyService.getConcepts(relationshipIds).subscribe(data => {
             this.relationshipTargets = data['items'];
+            this.addEventListeners();
         });
     }
 
@@ -234,50 +236,19 @@ export class TemplateViewComponent implements OnInit {
         }
     }
 
-    addHighlight(slotName) {
-        if (slotName) {
-            Array.from(document.getElementsByClassName('slot')).forEach(slot => {
-                this.activeTemplate.lexicalTemplates.forEach(lexical => {
-                    if ((slotName === lexical.takeFSNFromSlot) &&
-                        (slot.innerHTML.replace('[[', '[').replace(']]', ']') === lexical.displayName)) {
-                        slot.classList.add('highlight');
-                    }
-                });
-            });
-
-            // Array.from(document.getElementsByClassName('color-bar')).forEach(bar => {
-            //     this.activeTemplate.lexicalTemplates.forEach(lexical => {
-            //         if (slotName === lexical.takeFSNFromSlot) {
-            //             // console.log('slotName: ' + slotName + ' --- lexical: ', lexical);
-            //             bar.classList.add('highlight');
-            //         }
-            //     });
-            // });
-        }
+    addHighlight(color) {
+        Array.from(document.getElementsByClassName(color)).forEach(item => {
+            item.classList.add('highlight');
+        });
     }
 
-    removeHighlight(slotName) {
-        if (slotName) {
-            Array.from(document.getElementsByClassName('slot')).forEach(slot => {
-                this.activeTemplate.lexicalTemplates.forEach(lexical => {
-                    if ((slotName === lexical.takeFSNFromSlot) &&
-                        (slot.innerHTML.replace('[[', '[').replace(']]', ']') === lexical.displayName)) {
-                        slot.classList.remove('highlight');
-                    }
-                });
-            });
-
-            // Array.from(document.getElementsByClassName('color-bar')).forEach(bar => {
-            //     this.activeTemplate.lexicalTemplates.forEach(lexical => {
-            //         if (slotName === lexical.takeFSNFromSlot) {
-            //             bar.classList.remove('highlight');
-            //         }
-            //     });
-            // });
-        }
+    removeHighlight(color) {
+        Array.from(document.getElementsByClassName(color)).forEach(item => {
+            item.classList.remove('highlight');
+        });
     }
 
-    constructTemplate(term): string {
+    constructTemplate(term) {
         const open = '<span class="slot">[[';
         const close = ']]</span>';
         let completeTerm = term.replaceAll('[[', open).replaceAll(']]', close);
@@ -285,6 +256,22 @@ export class TemplateViewComponent implements OnInit {
             completeTerm = completeTerm.replace('<span class="slot">', '<span class="slot ' + color + '">');
         });
         return completeTerm;
+    }
+
+    addEventListeners() {
+        Array.from(document.getElementsByClassName('slot')).forEach(slot => {
+            slot.addEventListener('mouseenter', function(e) {
+                Array.from(document.getElementsByClassName(slot.classList[1])).forEach(item => {
+                    item.classList.add('highlight');
+                });
+            });
+
+            slot.addEventListener('mouseleave', function(e) {
+                Array.from(document.getElementsByClassName(slot.classList[1])).forEach(item => {
+                    item.classList.remove('highlight');
+                });
+            });
+        });
     }
 
     matchColours(slotName): string {
