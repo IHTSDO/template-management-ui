@@ -73,8 +73,13 @@ div.template-view {
             line-height: 34px;
             height: unset;
 
-            &.type, &.template {
+            &.type {
                 background-color: $bootstrap-grey;
+            }
+
+            &.template {
+                background-color: $bootstrap-grey;
+                font-size: 1.4rem;
             }
 
             &.blue {

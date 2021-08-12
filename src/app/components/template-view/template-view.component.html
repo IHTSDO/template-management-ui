@@ -10,7 +10,7 @@
     </h2>
     <h3 class="my-3 text-river-bed"><span matTooltip="Domain">{{activeTemplate.domain}}</span></h3>
     <div class="template-expressions rounded-lg border mb-5">
-        <div *ngFor="let template of activeTemplate.conceptOutline.descriptions" class="input-group p-4">
+        <div *ngFor="let template of activeTemplate.conceptOutline.descriptions" class="input-group px-3 my-3">
             <div class="input-group-prepend">
                 <span class="input-group-text w-8r text-center">{{template.type}}</span>
             </div>
@@ -29,8 +29,8 @@
             <h2 class="p-3 mb-0">Slots</h2>
             <ng-container *ngFor="let relationship of axiom.relationships; let i = index">
                 <hr *ngIf="(axiom.relationships[i - 1]?.groupId !== relationship.groupId)" class="w-100 my-0"/>
-                <div class="input-group p-3" [class.darker]="groupCheck(relationship.groupId)" (mouseenter)="addHighlight(matchColours(relationship.targetSlot?.slotName))" (mouseleave)="removeHighlight(matchColours(relationship.targetSlot?.slotName))"
-                     [class.pt-4b]="(axiom.relationships[i - 1]?.groupId !== relationship.groupId)" [class.pb-4b]="(axiom.relationships[i + 1]?.groupId !== relationship.groupId)">
+                <div class="input-group px-3 pt-3" [class.darker]="groupCheck(relationship.groupId)" [class.pb-3]="(axiom.relationships[i + 1]?.groupId !== relationship.groupId)"
+                     (mouseenter)="addHighlight(matchColours(relationship.targetSlot?.slotName))" (mouseleave)="removeHighlight(matchColours(relationship.targetSlot?.slotName))">
                     <div class="input-group-prepend"><span class="color-bar {{matchColours(relationship.targetSlot?.slotName)}}">&nbsp;&nbsp;&nbsp;</span></div>
                     <div class="input-group-prepend">
                         <span class="input-group-text w-20r text-center attribute">{{matchRelationshipType(relationship.type.conceptId)}}</span>
