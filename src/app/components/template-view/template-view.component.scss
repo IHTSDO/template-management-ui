@@ -81,6 +81,16 @@ div.template-view {
             &.purple {
                 background-color: $template-purple;
             }
+
+            &.confluence {
+                a {
+                    color: $cerulean;
+
+                    &:hover {
+                        color: darken($cerulean, 10%);
+                    }
+                }
+            }
         }
 
         span.input-group-text {
