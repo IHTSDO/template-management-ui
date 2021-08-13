@@ -23,7 +23,7 @@ export class TemplateViewComponent implements OnInit {
         'clam-shell',
         'green-mist',
         'perano',
-        'mercury',
+        'tonys-pink',
         'morning-glory',
         'dull-lavender'
     ];

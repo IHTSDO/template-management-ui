@@ -145,7 +145,7 @@ $clam-shell: #D0ABA6;
 $vanilla: #D0C2A6;
 $green-mist: #CAD0A6;
 $perano: #9DC7F0;
-$mercury: #E98689;
+$tonys-pink: #E98689;
 $morning-glory: #A0E3DF;
 $dull-lavender: #A0A5E3;
 
@@ -211,11 +211,11 @@ span.slot {
     }
 }
 
-.mercury {
-    background-color: lighten($mercury, 10%) !important;
+.tonys-pink {
+    background-color: lighten($tonys-pink, 10%) !important;
 
     &.highlight {
-        background-color: $mercury !important;
+        background-color: $tonys-pink !important;
     }
 }
 
