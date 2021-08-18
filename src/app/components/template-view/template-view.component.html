@@ -29,7 +29,7 @@
             <h2 class="p-3 mb-0">Slots</h2>
             <ng-container *ngFor="let relationship of axiom.relationships; let i = index">
                 <hr *ngIf="(axiom.relationships[i - 1]?.groupId !== relationship.groupId)" class="w-100 my-0"/>
-                <div class="input-group px-3 pt-3" [class.darker]="groupCheck(relationship.groupId)" [class.pb-3]="(axiom.relationships[i + 1]?.groupId !== relationship.groupId)"
+                <div class="input-group px-3 pt-3" [class.darker]="!groupCheck(relationship.groupId)" [class.pb-3]="(axiom.relationships[i + 1]?.groupId !== relationship.groupId)"
                      (mouseenter)="addHighlight(matchColours(relationship.targetSlot?.slotName))" (mouseleave)="removeHighlight(matchColours(relationship.targetSlot?.slotName))">
                     <div class="input-group-prepend"><span class="color-bar {{matchColours(relationship.targetSlot?.slotName)}}">&nbsp;&nbsp;&nbsp;</span></div>
                     <div class="input-group-prepend">
@@ -49,7 +49,7 @@
             <span class="input-group-text w-8r text-center">Confluence</span>
         </div>
         <div class="form-control confluence">
-            <a href="https://confluence.ihtsdotools.org/display/SCTEMPLATES/{{activeTemplate.name}} - IN PROD" target="_blank">{{activeTemplate.name}}</a>
+            <a href="https://confluence.ihtsdotools.org/display/SCTEMPLATES/{{activeTemplate.name}}" target="_blank">{{activeTemplate.name}}</a>
         </div>
     </div>
 </div>
