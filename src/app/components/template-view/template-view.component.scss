@@ -27,6 +27,12 @@ div.template-view {
         }
     }
 
+    h4 {
+        span {
+            line-height: 2.4rem;
+        }
+    }
+
 
     div.template-expressions {
         background-color: darken($white, 5%);
@@ -89,20 +95,22 @@ div.template-view {
             &.purple {
                 background-color: $template-purple;
             }
-
-            &.confluence {
-                a {
-                    color: $cerulean;
-
-                    &:hover {
-                        color: darken($cerulean, 10%);
-                    }
-                }
-            }
         }
 
         span.input-group-text {
             font-size: 1.2rem;
+        }
+    }
+
+    div.confluence {
+        line-height: 1.6rem;
+
+        a {
+            color: $cerulean;
+
+            &:hover {
+                color: darken($cerulean, 10%);
+            }
         }
     }
 }
