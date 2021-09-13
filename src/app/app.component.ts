@@ -15,6 +15,8 @@ import {TemplateService} from './services/template/template.service';
 })
 export class AppComponent implements OnInit {
 
+    eclBuilderOpen = false;
+
     versions: object;
     environment: string;
     // templates: any[];

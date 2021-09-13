@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { User } from '../../models/user';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
@@ -9,6 +9,9 @@ import { AuthenticationService } from '../../services/authentication/authenticat
     styleUrls: ['./snomed-navbar.component.scss']
 })
 export class SnomedNavbarComponent implements OnInit {
+
+    @Input() eclBuilderOpen = false;
+    @Output() eclBuilderEmitter = new EventEmitter<boolean>();
 
     environment: string;
     user: User;
@@ -25,5 +28,9 @@ export class SnomedNavbarComponent implements OnInit {
 
     logout() {
         this.authenticationService.logout();
+    }
+
+    toggleECLBuilder() {
+        this.eclBuilderEmitter.emit(!this.eclBuilderOpen);
     }
 }

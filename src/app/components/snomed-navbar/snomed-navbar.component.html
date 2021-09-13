@@ -13,6 +13,9 @@
     </ng-container>
 
     <div *ngIf="user" class="float-right mx-3">
+        <div class="logout d-inline-block m-2" (click)="toggleECLBuilder()">
+            <span class="px-2 text-ghost-grey">ECL Builder</span>
+        </div>
         <div class="logout d-inline-block m-2" (click)="logout()">
             <span class="px-2 text-ghost-grey">Logout</span>
         </div>
