@@ -57,6 +57,7 @@
                                     "with": "src/environments/environment.prod.ts"
                                 }
                             ],
+                            "baseHref": "/template-management/",
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": false,
