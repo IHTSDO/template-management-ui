@@ -17,6 +17,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
+                        "baseHref": "/",
                         "aot": true,
                         "outputPath": "dist/template-management-ui",
                         "index": "src/index.html",
@@ -38,7 +39,7 @@
                         ],
                         "scripts": [
                             "./node_modules/jquery/dist/jquery.min.js",
-                            "./node_modules/popper.js/dist/umd/popper.min.js",
+                            "./node_modules/@popperjs/core/dist/umd/popper.min.js",
                             "./node_modules/bootstrap/dist/js/bootstrap.min.js"
                         ]
                     },
@@ -56,10 +57,10 @@
                                     "with": "src/environments/environment.prod.ts"
                                 }
                             ],
+                            "baseHref": "/template-management/",
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": false,
-                            "extractCss": true,
                             "namedChunks": false,
                             "aot": true,
                             "extractLicenses": true,
@@ -72,8 +73,7 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
                         "browserTarget": "template-management-ui:build",
-                        "liveReload": false,
-                        "baseHref": "/"
+                        "liveReload": false
                     },
                     "configurations": {
                         "production": {

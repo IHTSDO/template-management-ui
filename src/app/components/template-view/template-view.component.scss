@@ -49,6 +49,12 @@ div.template-view {
 
         div.input-group {
             cursor: default;
+
+            div.input-group-prepend, div.input-group-append {
+                span, div {
+                    height: 100%;
+                }
+            }
         }
 
         span.case-sensitivity {
@@ -104,12 +110,22 @@ div.template-view {
 
     div.confluence {
         line-height: 1.6rem;
+        cursor: default;
 
-        a {
-            color: $cerulean;
+        div.form-control {
+            a {
+                color: $cerulean;
 
-            &:hover {
-                color: darken($cerulean, 10%);
+                &:hover {
+                    color: darken($cerulean, 10%);
+                }
+            }
+        }
+
+
+        div.input-group-prepend {
+            span, div {
+                height: 100%;
             }
         }
     }

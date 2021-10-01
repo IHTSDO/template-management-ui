@@ -31,7 +31,7 @@
                 <hr *ngIf="(axiom.relationships[i - 1]?.groupId !== relationship.groupId)" class="w-100 my-0"/>
                 <div class="input-group px-3 pt-3" [class.darker]="!groupCheck(relationship.groupId)" [class.pb-3]="(axiom.relationships[i + 1]?.groupId !== relationship.groupId)"
                      (mouseenter)="addHighlight(matchColours(relationship.targetSlot?.slotName))" (mouseleave)="removeHighlight(matchColours(relationship.targetSlot?.slotName))">
-                    <div class="input-group-prepend"><span class="color-bar {{matchColours(relationship.targetSlot?.slotName)}}">&nbsp;&nbsp;&nbsp;</span></div>
+                    <div class="input-group-prepend"><div class="color-bar {{matchColours(relationship.targetSlot?.slotName)}}">&nbsp;&nbsp;&nbsp;</div></div>
                     <div class="input-group-prepend">
                         <span class="input-group-text w-20r text-center attribute">{{matchRelationshipType(relationship.type.conceptId)}}</span>
                     </div>
@@ -44,11 +44,11 @@
             </ng-container>
         </div>
     </ng-container>
-    <div class="input-group mb-5">
+    <div class="input-group mb-5 confluence">
         <div class="input-group-prepend">
-            <span class="input-group-text w-8r text-center">Confluence</span>
+            <div class="input-group-text w-8r text-center">Confluence</div>
         </div>
-        <div class="form-control confluence">
+        <div class="form-control">
             <a href="https://confluence.ihtsdotools.org/display/SCTEMPLATES/{{activeTemplate.name}}" target="_blank">{{activeTemplate.name}}</a>
         </div>
     </div>
