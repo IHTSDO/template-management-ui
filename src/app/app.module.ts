@@ -32,6 +32,7 @@ import {ModalComponent} from './components/modal/modal.component';
 import {ModalService} from './services/modal/modal.service';
 import { AcceptabilityMapPipe } from './pipes/acceptability-map/acceptability-map.pipe';
 import { OutdatedPipe } from './pipes/outdated/outdated.pipe';
+import { CategoryPipe } from './pipes/category/category.pipe';
 
 // SERVICE IMPORTS
 
@@ -48,7 +49,8 @@ import { OutdatedPipe } from './pipes/outdated/outdated.pipe';
         TemplateViewComponent,
         ModalComponent,
         AcceptabilityMapPipe,
-        OutdatedPipe
+        OutdatedPipe,
+        CategoryPipe
     ],
     imports: [
         BrowserModule,
