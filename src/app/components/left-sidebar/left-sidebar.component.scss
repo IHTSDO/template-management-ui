@@ -7,47 +7,206 @@ nav#sidebar {
     background: $alto-white;
     overflow: auto;
 
-    h3 {
-        border-bottom: 1px $ghost-grey solid;
+    div.head {
+        background: $alto-white;
+        //width: 32rem;
 
-        span {
-            font-size: 1.2rem;
+        h3 {
+            border-bottom: 1px $ghost-grey solid;
+            height: 4rem;
+
+            span {
+                font-size: 1.2rem;
+                color: $grey;
+            }
+        }
+
+        input.searchbar {
+            font-size: 1.4rem;
+            background-color: lighten($alto-white, 10%);
+            width: 100%;
+            border-bottom: 1px $ghost-grey solid;
+            color: $bootstrap-black;
+            cursor: text;
+        }
+
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
             color: $grey;
-        }
-    }
-
-    input.searchbar {
-        font-size: 1.4rem;
-        background-color: lighten($alto-white, 10%);
-        width: 100%;
-        border-bottom: 1px $ghost-grey solid;
-        color: $bootstrap-black;
-        cursor: text;
-    }
-
-    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: $grey;
-        font-weight: 300;
-        opacity: 1; /* Firefox */
-    }
-
-    div.category {
-        font-size: 1.2rem;
-        width: 100%;
-        color: $bootstrap-black;
-        cursor: pointer;
-        border-bottom: 1px $ghost-grey solid;
-
-        &:hover {
-            background-color: darken($alto-white, 5%);
+            font-weight: 300;
+            opacity: 1; /* Firefox */
         }
 
-        &.active {
-            background-color: $anakiwa;
+        div.template {
+            cursor: pointer;
+            border-bottom: 1px solid $ghost-grey;
 
-            &:hover {
-                background-color: darken($anakiwa, 5%);
+            div {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
         }
     }
+
+    div.templates {
+        background: $alto-white;
+        //width: 32rem;
+        //margin-top: 162px;
+        //height: calc(100vh - 252px);
+        overflow: auto;
+
+        div.template {
+            font-size: 1.2rem;
+            width: 100%;
+            color: $bootstrap-black;
+            cursor: pointer;
+            border-bottom: 1px $ghost-grey solid;
+
+            &:hover {
+                background-color: darken($alto-white, 5%);
+            }
+
+            &.active {
+                background-color: $anakiwa;
+
+                &:hover {
+                    background-color: darken($anakiwa, 5%);
+                }
+            }
+        }
+    }
+}
+
+$spring-rain: #95BB95;
+$london-hue: #B695BB;
+$vanilla: #BBAE95;
+$dull-lavender: #A0A5E3;
+$tonys-pink: #E98689;
+$green-mist: #7DC1B3;
+$ice-blue: #9FC5E8;
+
+.spring-rain {
+    background-color: lighten($spring-rain, 10%) !important;
+
+    &:hover {
+        background-color: darken($spring-rain, 20%) !important;
+        color: $white;
+    }
+
+    &.active {
+        background-color: darken($spring-rain, 30%) !important;
+        color: $white;
+    }
+}
+
+.london-hue {
+    background-color: lighten($london-hue, 10%) !important;
+
+    &:hover {
+        background-color: darken($london-hue, 20%) !important;
+        color: $white;
+    }
+
+    &.active {
+        background-color: darken($london-hue, 30%) !important;
+        color: $white;
+    }
+}
+
+.vanilla {
+    background-color: lighten($vanilla, 10%) !important;
+
+    &:hover {
+        background-color: darken($vanilla, 20%) !important;
+        color: $white;
+    }
+
+    &.active {
+        background-color: darken($vanilla, 30%) !important;
+        color: $white;
+    }
+}
+
+.dull-lavender {
+    background-color: lighten($dull-lavender, 10%) !important;
+
+    &:hover {
+        background-color: darken($dull-lavender, 20%) !important;
+        color: $white;
+    }
+
+    &.active {
+        background-color: darken($dull-lavender, 30%) !important;
+        color: $white;
+    }
+}
+
+.tonys-pink {
+    background-color: lighten($tonys-pink, 10%) !important;
+
+    &:hover {
+        background-color: darken($tonys-pink, 20%) !important;
+        color: $white;
+    }
+
+    &.active {
+        background-color: darken($tonys-pink, 30%) !important;
+        color: $white;
+    }
+}
+
+.green-mist {
+    background-color: lighten($green-mist, 10%) !important;
+
+    &:hover, &.active {
+        background-color: darken($green-mist, 20%) !important;
+        color: $white;
+    }
+
+    &.active {
+        background-color: darken($green-mist, 30%) !important;
+        color: $white;
+    }
+}
+
+.ice-blue {
+    background-color: lighten($ice-blue, 10%) !important;
+
+    &:hover, &.active {
+        background-color: darken($ice-blue, 20%) !important;
+        color: $white;
+    }
+
+    &.active {
+        background-color: darken($ice-blue, 30%) !important;
+        color: $white;
+    }
+}
+
+.spring-rain-border {
+    border-left: solid 5px lighten($spring-rain, 10%) !important;
+}
+
+.london-hue-border {
+    border-left: solid 5px lighten($london-hue, 10%) !important;
+}
+
+.vanilla-border {
+    border-left: solid 5px lighten($vanilla, 10%) !important;
+}
+
+.dull-lavender-border {
+    border-left: solid 5px lighten($dull-lavender, 10%) !important;
+}
+
+.tonys-pink-border {
+    border-left: solid 5px lighten($tonys-pink, 10%) !important;
+}
+
+.green-mist-border {
+    border-left: solid 5px lighten($green-mist, 10%) !important;
+}
+
+.ice-blue-border {
+    border-left: solid 5px lighten($ice-blue, 10%) !important;
 }
