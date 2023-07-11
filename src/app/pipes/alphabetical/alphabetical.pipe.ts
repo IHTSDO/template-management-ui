@@ -6,19 +6,21 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class AlphabeticalPipe implements PipeTransform {
 
-    transform(items: any[]): any {
+    transform(items: any[], key): any {
         if (!items) {
             return [];
         }
 
-        items = items.sort(function (item1, item2) {
-            if (item1.name > item2.name) {
+        items = items.sort(function (a, b) {
+            if (a[key] > b[key]) {
                 return 1;
             }
 
-            if (item1.name < item2.name) {
+            if (a[key] < b[key]) {
                 return -1;
             }
+
+            return null;
         });
 
         return items;

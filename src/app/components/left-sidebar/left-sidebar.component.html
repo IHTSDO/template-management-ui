@@ -1,7 +1,7 @@
 <nav id="sidebar" class="footer-margin">
 
     <div class="head">
-        <h3 class="p-3 mb-0">Templates<span *ngIf="templates" class="p-2 float-right">{{(templates | outdated | category:categoryFilter | alphabetical | alphabeticalSemanticTag | textFilter:textFilter).length}} found</span></h3>
+        <h3 class="p-3 mb-0">Templates<span *ngIf="templates" class="p-2 float-right">{{(templates | outdated | category:categoryFilter | alphabetical:'name' | alphabeticalSemanticTag:'name' | textFilter:textFilter).length}} found</span></h3>
         <input type="search" class="searchbar py-2 px-3" [(ngModel)]="textFilter" placeholder="Search for Templates...">
         <div class="mx-0 p-1 row template">
             <div *ngFor="let category of categories; let i = index" class="col-6 p-1">
@@ -13,7 +13,7 @@
     <div class="templates">
         <ng-container *ngFor="let category of categories; let i = index">
             <ng-container *ngIf="!categoryFilter || category === categoryFilter">
-                <div *ngFor="let template of templates | outdated | category:category | alphabetical | alphabeticalSemanticTag | textFilter:textFilter" class="template py-2 px-3 {{colors[i]}}-border"
+                <div *ngFor="let template of templates | outdated | category:category | alphabetical:'name' | alphabeticalSemanticTag:'name' | textFilter:textFilter" class="template py-2 px-3 {{colors[i]}}-border"
                      (click)="selectTemplate(template)"
                      [class.active]="activeTemplate === template">{{template.name}}</div>
             </ng-container>

@@ -101,7 +101,7 @@ export class TemplateViewComponent implements OnInit {
         });
     }
 
-    caseSignificance(caseSignificance): string {
+    caseSignificance(caseSignificance): any {
         switch (caseSignificance) {
             case 'CASE_INSENSITIVE':
                 return 'ci';
@@ -112,7 +112,7 @@ export class TemplateViewComponent implements OnInit {
         }
     }
 
-    readableCaseSignificance(caseSignificance): string {
+    readableCaseSignificance(caseSignificance): any {
         switch (caseSignificance) {
             case 'CASE_INSENSITIVE':
                 return 'Entire Term Case Insensitive';
@@ -210,7 +210,7 @@ export class TemplateViewComponent implements OnInit {
         return newMap;
     }
 
-    acceptabilityValue(value): string {
+    acceptabilityValue(value): any {
         switch (value) {
             case 'PREFERRED':
                 return 'P';
@@ -221,7 +221,7 @@ export class TemplateViewComponent implements OnInit {
         }
     }
 
-    readableAcceptabilityMap(acceptabilityMap): string {
+    readableAcceptabilityMap(acceptabilityMap): any {
         for (const key in acceptabilityMap) {
             if (acceptabilityMap.hasOwnProperty(key)) {
                 switch (acceptabilityMap[key]) {

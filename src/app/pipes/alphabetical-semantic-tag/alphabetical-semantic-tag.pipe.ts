@@ -10,19 +10,21 @@ export class AlphabeticalSemanticTagPipe implements PipeTransform {
     constructor() {
     }
 
-    transform(items: any[]): any {
+    transform(items: any[], key: string): any {
         if (!items) {
             return [];
         }
 
-        items = items.sort(function (item1, item2) {
-            if (SnomedUtilityService.getSemanticTagFromFsn(item1.name) > SnomedUtilityService.getSemanticTagFromFsn(item2.name)) {
+        items = items.sort(function (a, b) {
+            if (SnomedUtilityService.getSemanticTagFromFsn(a[key]) > SnomedUtilityService.getSemanticTagFromFsn(b[key])) {
                 return 1;
             }
 
-            if (SnomedUtilityService.getSemanticTagFromFsn(item1.name) < SnomedUtilityService.getSemanticTagFromFsn(item2.name)) {
+            if (SnomedUtilityService.getSemanticTagFromFsn(a[key]) < SnomedUtilityService.getSemanticTagFromFsn(b[key])) {
                 return -1;
             }
+
+            return null;
         });
 
         return items;
