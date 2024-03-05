@@ -26,7 +26,10 @@ export class LeftSidebarComponent implements OnInit {
         'dull-lavender',
         'tonys-pink',
         'green-mist',
-        'ice-blue'
+        'ice-blue',
+        'ghostly-grey',
+        'porsche-orange',
+        'sunflower-yellow'
     ];
 
     constructor(private templateService: TemplateService) {
