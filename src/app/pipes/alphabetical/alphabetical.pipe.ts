@@ -11,17 +11,25 @@ export class AlphabeticalPipe implements PipeTransform {
             return [];
         }
 
-        items = items.sort(function (a, b) {
-            if (a[key] > b[key]) {
-                return 1;
-            }
+        if (key) {
+            items = items.sort(function (a, b) {
+                if (a[key] > b[key]) {
+                    return 1;
+                }
 
-            if (a[key] < b[key]) {
-                return -1;
-            }
+                if (a[key] < b[key]) {
+                    return -1;
+                }
 
-            return null;
-        });
+                return null;
+            });
+        } else {
+            items = items.sort((a, b) => {
+                a = a.toLowerCase();
+                b = b.toLowerCase();
+                return a.localeCompare(b);
+            });
+        }
 
         return items;
     }
