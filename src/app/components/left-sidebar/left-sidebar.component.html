@@ -4,7 +4,7 @@
         <h3 class="p-3 mb-0">Templates<span *ngIf="templates" class="p-2 float-right">{{(templates | outdated | category:categoryFilter | alphabetical:'name' | alphabeticalSemanticTag:'name' | textFilter:textFilter).length}} found</span></h3>
         <input type="search" class="searchbar py-2 px-3" [(ngModel)]="textFilter" placeholder="Search for Templates...">
         <div class="mx-0 p-1 row template">
-            <div *ngFor="let category of categories; let i = index" class="col-6 p-1">
+            <div *ngFor="let category of categories | alphabetical: ''; let i = index" class="col-6 p-1">
                 <div class="p-1 px-2 rounded text-center {{colors[i]}}" (click)="selectCategory(category)" [class.active]="categoryFilter === category">{{category}}</div>
             </div>
         </div>
