@@ -1,8 +1,6 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
-@Pipe({
-    name: 'outdated'
-})
+@Pipe({ name: 'outdated' })
 export class OutdatedPipe implements PipeTransform {
 
     transform(items: any[]): any[] {

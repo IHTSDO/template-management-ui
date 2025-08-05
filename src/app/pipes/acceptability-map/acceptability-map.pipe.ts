@@ -1,8 +1,6 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
-@Pipe({
-    name: 'acceptabilityMap'
-})
+@Pipe({ name: 'acceptabilityMap' })
 export class AcceptabilityMapPipe implements PipeTransform {
 
     transform(items: any[]): any {

@@ -3,11 +3,16 @@ import {Subscription} from 'rxjs';
 import {TemplateService} from '../../services/template/template.service';
 import {TerminologyServerService} from '../../services/terminologyServer/terminology-server.service';
 import {ModalService} from '../../services/modal/modal.service';
+import { NgIf, NgFor } from '@angular/common';
+import { MatTooltip } from '@angular/material/tooltip';
+import { ModalComponent } from '../modal/modal.component';
+import { AcceptabilityMapPipe } from '../../pipes/acceptability-map/acceptability-map.pipe';
 
 @Component({
     selector: 'app-template-view',
     templateUrl: './template-view.component.html',
-    styleUrls: ['./template-view.component.scss']
+    styleUrls: ['./template-view.component.scss'],
+    imports: [NgIf, MatTooltip, NgFor, ModalComponent, AcceptabilityMapPipe]
 })
 export class TemplateViewComponent implements OnInit {
 

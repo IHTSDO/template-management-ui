@@ -1,7 +1,8 @@
-@import 'bootstrap/dist/css/bootstrap.min.css';
-@import 'src/material-theme.scss';
-@import 'src/variables.scss';
-@import 'toastr';
+@use 'bootstrap/dist/css/bootstrap.min.css';
+@use 'src/material-theme' as *;
+@use 'src/variables' as *;
+@use 'toastr';
+@use "sass:color";
 
 html {
     font-size: 62.5%;
@@ -160,7 +161,7 @@ span.slot {
 }
 
 .spring-rain {
-    background-color: lighten($spring-rain, 10%) !important;
+    background-color: color.adjust($spring-rain, $lightness: 10%) !important;
 
     &.highlight {
         background-color: $spring-rain !important;
@@ -168,7 +169,7 @@ span.slot {
 }
 
 .london-hue {
-    background-color: lighten($london-hue, 10%) !important;
+    background-color: color.adjust($london-hue, $lightness: 10%) !important;
 
     &.highlight {
         background-color: $london-hue !important;
@@ -176,7 +177,7 @@ span.slot {
 }
 
 .careys-pink {
-    background-color: lighten($careys-pink, 10%) !important;
+    background-color: color.adjust($careys-pink, $lightness: 10%) !important;
 
     &.highlight {
         background-color: $careys-pink !important;
@@ -184,7 +185,7 @@ span.slot {
 }
 
 .clam-shell {
-    background-color: lighten($clam-shell, 10%) !important;
+    background-color: color.adjust($clam-shell, $lightness: 10%) !important;
 
     &.highlight {
         background-color: $clam-shell !important;
@@ -192,7 +193,7 @@ span.slot {
 }
 
 .vanilla {
-    background-color: lighten($vanilla, 10%) !important;
+    background-color: color.adjust($vanilla, $lightness: 10%) !important;
 
     &.highlight {
         background-color: $vanilla !important;
@@ -200,7 +201,7 @@ span.slot {
 }
 
 .green-mist {
-    background-color: lighten($green-mist, 10%) !important;
+    background-color: color.adjust($green-mist, $lightness: 10%) !important;
 
     &.highlight {
         background-color: $green-mist !important;
@@ -208,7 +209,8 @@ span.slot {
 }
 
 .perano {
-    background-color: lighten($perano, 10%) !important;
+    background-color: color.adjust($perano, $lightness: 10%) !important;
+
 
     &.highlight {
         background-color: $perano !important;
@@ -216,7 +218,7 @@ span.slot {
 }
 
 .tonys-pink {
-    background-color: lighten($tonys-pink, 10%) !important;
+    background-color: color.adjust($tonys-pink, $lightness: 10%) !important;
 
     &.highlight {
         background-color: $tonys-pink !important;
@@ -224,7 +226,7 @@ span.slot {
 }
 
 .morning-glory {
-    background-color: lighten($morning-glory, 10%) !important;
+    background-color: color.adjust($morning-glory, $lightness: 10%) !important;
 
     &.highlight {
         background-color: $morning-glory !important;
@@ -232,7 +234,7 @@ span.slot {
 }
 
 .dull-lavender {
-    background-color: lighten($dull-lavender, 10%) !important;
+    background-color: color.adjust($dull-lavender, $lightness: 10%) !important;
 
     &.highlight {
         background-color: $dull-lavender !important;
