@@ -7,11 +7,16 @@ import { EnvService } from './services/environment/env.service';
 import { ToastrService } from 'ngx-toastr';
 import {StatusPageService} from './services/statusPage/status-page.service';
 import {TemplateService} from './services/template/template.service';
+import { SnomedNavbarComponent } from './components/snomed-navbar/snomed-navbar.component';
+import { LeftSidebarComponent } from './components/left-sidebar/left-sidebar.component';
+import { TemplateViewComponent } from './components/template-view/template-view.component';
+import { SnomedFooterComponent } from './components/snomed-footer/snomed-footer.component';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    styleUrls: ['./app.component.scss'],
+    imports: [SnomedNavbarComponent, LeftSidebarComponent, TemplateViewComponent, SnomedFooterComponent]
 })
 export class AppComponent implements OnInit {
 

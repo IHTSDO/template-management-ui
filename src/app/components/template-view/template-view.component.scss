@@ -1,4 +1,5 @@
-@import 'src/variables.scss';
+@use 'src/variables' as *;
+@use "sass:color";
 
 $template-yellow: rgb(255,255,219);
 $template-blue: rgb(183,219,255);
@@ -35,10 +36,10 @@ div.template-view {
 
 
     div.template-expressions {
-        background-color: darken($white, 5%);
+        background-color: color.adjust($white, $lightness: -5%);
 
         div.darker {
-            background-color: darken($white, 15%);
+            background-color: color.adjust($white, $lightness: -15%)
         }
 
         hr {
@@ -117,7 +118,7 @@ div.template-view {
                 color: $cerulean;
 
                 &:hover {
-                    color: darken($cerulean, 10%);
+                    color: color.adjust($cerulean, $lightness: -10%)
                 }
             }
         }
@@ -139,7 +140,7 @@ app-modal.template-syntax-modal {
         div.template-syntax-container {
             border: 1px solid $ghost-grey;
             border-radius: 1rem;
-            background-color: darken($white, 5%);
+            background-color: color.adjust($white, $lightness: -5%);
             overflow: scroll;
 
             p {

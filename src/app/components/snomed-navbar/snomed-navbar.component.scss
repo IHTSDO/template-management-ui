@@ -1,4 +1,5 @@
-@import 'src/variables.scss';
+@use 'src/variables' as *;
+@use "sass:color";
 
 nav {
     a.logo {
@@ -125,7 +126,7 @@ nav {
                     z-index: auto;
 
                     &:hover {
-                        background-color: darken($bootstrap-black, 10%);
+                        background-color: color.adjust($bootstrap-black, $lightness: -10%);
                         cursor: pointer;
                     }
                 }
