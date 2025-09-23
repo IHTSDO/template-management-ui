@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { User } from '../../models/user';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
 import { NgSwitch, NgSwitchCase, NgSwitchDefault, NgIf } from '@angular/common';
+import {DrawerService} from '../../services/drawer.service';
 
 @Component({
     selector: 'app-snomed-navbar',
@@ -16,13 +17,18 @@ export class SnomedNavbarComponent implements OnInit {
     user: User;
     userSubscription: Subscription;
 
-    constructor(private authenticationService: AuthenticationService) {
+    constructor(private authenticationService: AuthenticationService,
+                private drawerService: DrawerService) {
         this.environment = window.location.host.split(/[.]/)[0].split(/[-]/)[0];
         this.userSubscription = this.authenticationService.getUser().subscribe(data => this.user = data);
     }
 
     ngOnInit() {
-        this.authenticationService.setUser();
+    }
+
+    openDrawer() {
+        this.drawerService.setDrawerOpen(true);
+        document.body.classList.add('app-drawer-open');
     }
 
     logout() {

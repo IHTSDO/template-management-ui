@@ -11,14 +11,25 @@ import { SnomedNavbarComponent } from './components/snomed-navbar/snomed-navbar.
 import { LeftSidebarComponent } from './components/left-sidebar/left-sidebar.component';
 import { TemplateViewComponent } from './components/template-view/template-view.component';
 import { SnomedFooterComponent } from './components/snomed-footer/snomed-footer.component';
+import {DrawerComponent} from './components/drawer/drawer.component';
+import {NgIf} from '@angular/common';
+import {Subscription} from 'rxjs';
+import {User} from './models/user';
+import {DrawerService} from './services/drawer.service';
+import {ConfigService} from './services/config.service';
+import {AuthenticationService} from './services/authentication/authentication.service';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    imports: [SnomedNavbarComponent, LeftSidebarComponent, TemplateViewComponent, SnomedFooterComponent]
+    imports: [SnomedNavbarComponent, LeftSidebarComponent, TemplateViewComponent, SnomedFooterComponent, DrawerComponent, NgIf]
 })
 export class AppComponent implements OnInit {
+
+    user: User;
+    drawerOpen: any;
+    drawerOpenSubscription: Subscription;
 
     versions: object;
     environment: string;
@@ -30,14 +41,17 @@ export class AppComponent implements OnInit {
 
     scheduledAlerts: any[] = [];
 
-    constructor(private authoringService: AuthoringService,
+    constructor(private authenticationService: AuthenticationService,
+                private authoringService: AuthoringService,
                 private branchingService: BranchingService,
                 private envService: EnvService,
+                private drawerService: DrawerService,
+                private configService: ConfigService,
                 private toastr: ToastrService,
                 private titleService: Title,
                 private statusService: StatusPageService,
                 private templateService: TemplateService) {
-
+        this.drawerOpenSubscription = this.drawerService.getDrawerOpen().subscribe(data => this.drawerOpen = data);
     }
 
     ngOnInit() {
@@ -57,6 +71,13 @@ export class AppComponent implements OnInit {
 
         // this.checkSchedule();
         // setInterval(() => this.checkSchedule(), 60000);
+
+        this.configService.loadConfig().subscribe(data => {
+            this.authenticationService.httpGetUser().subscribe(user => {
+                this.user = user;
+                this.authenticationService.setUser(user);
+            });
+        });
 
         this.projectSetup();
     }
