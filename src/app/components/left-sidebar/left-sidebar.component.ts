@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Subscription} from 'rxjs';
 import {TemplateService} from '../../services/template/template.service';
 import {SnomedUtilityService} from '../../services/snomedUtility/snomed-utility.service';
-import { NgIf, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AlphabeticalPipe } from '../../pipes/alphabetical/alphabetical.pipe';
 import { TextFilterPipe } from '../../pipes/text-filter/text-filter.pipe';
@@ -14,7 +14,7 @@ import { CategoryPipe } from '../../pipes/category/category.pipe';
     selector: 'app-left-sidebar',
     templateUrl: './left-sidebar.component.html',
     styleUrls: ['./left-sidebar.component.scss'],
-    imports: [NgIf, FormsModule, NgFor, AlphabeticalPipe, TextFilterPipe, AlphabeticalSemanticTagPipe, OutdatedPipe, CategoryPipe]
+    imports: [CommonModule, FormsModule, AlphabeticalPipe, TextFilterPipe, AlphabeticalSemanticTagPipe, OutdatedPipe, CategoryPipe]
 })
 export class LeftSidebarComponent implements OnInit {
 

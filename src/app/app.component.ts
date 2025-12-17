@@ -12,7 +12,7 @@ import { LeftSidebarComponent } from './components/left-sidebar/left-sidebar.com
 import { TemplateViewComponent } from './components/template-view/template-view.component';
 import { SnomedFooterComponent } from './components/snomed-footer/snomed-footer.component';
 import {DrawerComponent} from './components/drawer/drawer.component';
-import {NgIf} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import {Subscription} from 'rxjs';
 import {User} from './models/user';
 import {DrawerService} from './services/drawer.service';
@@ -23,7 +23,7 @@ import {AuthenticationService} from './services/authentication/authentication.se
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    imports: [SnomedNavbarComponent, LeftSidebarComponent, TemplateViewComponent, SnomedFooterComponent, DrawerComponent, NgIf]
+    imports: [SnomedNavbarComponent, LeftSidebarComponent, TemplateViewComponent, SnomedFooterComponent, DrawerComponent, CommonModule]
 })
 export class AppComponent implements OnInit {
 

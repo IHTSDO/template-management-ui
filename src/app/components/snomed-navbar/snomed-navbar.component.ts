@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { User } from '../../models/user';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
-import { NgSwitch, NgSwitchCase, NgSwitchDefault, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import {DrawerService} from '../../services/drawer.service';
 
 @Component({
     selector: 'app-snomed-navbar',
     templateUrl: './snomed-navbar.component.html',
     styleUrls: ['./snomed-navbar.component.scss'],
-    imports: [NgSwitch, NgSwitchCase, NgSwitchDefault, NgIf]
+    imports: [CommonModule]
 })
 export class SnomedNavbarComponent implements OnInit {
 
